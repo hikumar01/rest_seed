@@ -1,0 +1,31 @@
+---
+# Clangd configuration for rest_api project
+# This file helps clangd understand the project structure and find headers
+
+# Compilation database location
+CompileFlags:
+  # Add include directories
+  Add:
+    - "-I/Users/hikumar/src/rest_api/include"
+    - "-I/Users/hikumar/src/rest_api/boost/boost_1_86_0"
+    - "-std=c++17"
+    - "-Wall"
+    - "-Werror"
+
+# Index settings
+Index:
+  Background: Build
+  StandardLibrary: true
+
+# Diagnostics settings
+Diagnostics:
+  ClangTidy:
+    Add:
+      - modernize-*
+      - readability-*
+    Remove:
+      - modernize-use-trailing-return-type
+
+# Hover settings
+Hover:
+  ShowAKA: true
